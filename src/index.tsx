@@ -4,7 +4,7 @@ import { Provider } from 'react-redux'
 import { store } from './app/store'
 import App from './App'
 import reportWebVitals from './reportWebVitals'
-import 'antd/dist/antd.css'
+import 'antd/dist/antd.min.css'
 import './index.css'
 
 // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
