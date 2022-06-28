@@ -11,12 +11,10 @@ import Error from './pages/Error'
 const { Content, Sider } = Layout
 
 function App() {
-  const [collapsed, setCollapsed] = useState(false)
-
   return (
     <BrowserRouter>
       <Layout>
-        <Sider collapsible collapsed={collapsed} onCollapse={value => setCollapsed(value)}>
+        <Sider breakpoint='lg' collapsedWidth='0'>
           <Navigation />
         </Sider>
         <Content className='layout-background layout-content layout-wrapper'>
