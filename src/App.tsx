@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Layout } from 'antd'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Navigation from './features/navigation/Navigation'
@@ -22,7 +22,7 @@ function App() {
             <Route path='/' element={<Home />} />
             <Route path='/account' element={<Profile />} />
             <Route path='/people' element={<Users />} />
-            <Route path='*' element={<Error message='not found' />} />
+            <Route path='*' element={<Error message='Страница не найдена' />} />
           </Routes>
         </Content>
       </Layout>
