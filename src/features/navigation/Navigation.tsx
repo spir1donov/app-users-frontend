@@ -26,7 +26,7 @@ const Navigation: FC = () => {
     navigate(key)
   }
 
-  return <Menu onClick={onClick} style={{ width: 256 }} defaultSelectedKeys={[pathname]} mode='inline' items={items} />
+  return <Menu onClick={onClick} defaultSelectedKeys={[pathname]} mode='inline' items={items} />
 }
 
 export default Navigation
