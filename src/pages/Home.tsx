@@ -1,10 +1,10 @@
 import React, { FC } from 'react'
-import SignIn from '../features/signin/SignIn'
+import Auth from '../features/auth/Auth'
 
 const Home: FC = () => {
   return (
     <div>
-      <SignIn />
+      <Auth />
     </div>
   )
 }
