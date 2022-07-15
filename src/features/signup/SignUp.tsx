@@ -3,6 +3,7 @@ import { Button, DatePicker, Form, Input, message, Select, Upload } from 'antd'
 import { LoadingOutlined, PlusOutlined } from '@ant-design/icons'
 import type { UploadChangeParam } from 'antd/es/upload'
 import type { RcFile, UploadFile, UploadProps } from 'antd/es/upload/interface'
+import type { UploadRequestOption as RcCustomRequestOptions } from 'rc-upload/lib/interface'
 import validateMessages from '../../helpers/validateMessages'
 import layout from '../../helpers/formLayout'
 
@@ -30,7 +31,26 @@ const AvatarUpload: FC = () => {
   const [loading, setLoading] = useState(false)
   const [imageUrl, setImageUrl] = useState<string>()
 
+  const uploadImage = async (options: RcCustomRequestOptions) => {
+    const { onSuccess, onError, file } = options
+    console.log(options)
+    console.log(file)
+
+    try {
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
+      onSuccess('Ok')
+      console.log('success')
+    } catch (err) {
+      console.log('Eroor: ', err)
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
+      onError({ err })
+    }
+  }
+
   const handleChange: UploadProps['onChange'] = (info: UploadChangeParam<UploadFile>) => {
+    console.log('handleChange', info)
     if (info.file.status === 'uploading') {
       setLoading(true)
       return
@@ -54,6 +74,7 @@ const AvatarUpload: FC = () => {
       showUploadList={false}
       beforeUpload={beforeUpload}
       onChange={handleChange}
+      customRequest={uploadImage}
     >
       {imageUrl ? <img src={imageUrl} alt='avatar' style={{ width: '100%' }} /> : uploadButton}
     </Upload>
